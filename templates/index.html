@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    html,
+    body {
+      background-color: rgb(186, 224, 255);
+      background-image: url(/TandyLogo.png);
+    }
+
+    .forum-post {
+      background-color: white;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+  </style>
+
+  <title>Tandy World</title>
+</head>
+
+<body>
+  <h1>Tandy World</h1>
+
+  <h2>New Post</h2>
+  <form action="/posts" method="post">
+    <input type="text" name="author" placeholder="author">
+    <input type="text" name="title" placeholder="title">
+    <textarea name="body" placeholder="Body"></textarea>
+    <button type="submit">Create Post</button>
+</form>
+    <h2>Posts</h2>
+    {% for post in posts %}
+    <article class="forum-post">
+      <h3>{{ post.title }}</h3>
+      <p>By {{ post.author }}</p>
+      <p>{{ post.body }}</p>
+      <form action="/posts/{{ post.id }}/delete" method="post" style="display: inline;">
+        <button type="submit">Delete</button>
+      </form>
+    </article>
+    {% endfor %}
+</body>
+
+</html>
