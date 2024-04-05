@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "dev": "nodemon -e '*' app.js",
-    "start": "node app.js"
+    "start": "node app.js",
+    "postinstall": "npm rebuild better-sqlite3"
   },
   "type": "module",
   "author": "",
